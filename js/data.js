@@ -1,14 +1,3 @@
-var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
-if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
-{
-  let window = _____WB$wombat$assign$function_____("window");
-  let self = _____WB$wombat$assign$function_____("self");
-  let document = _____WB$wombat$assign$function_____("document");
-  let location = _____WB$wombat$assign$function_____("location");
-  let top = _____WB$wombat$assign$function_____("top");
-  let parent = _____WB$wombat$assign$function_____("parent");
-  let frames = _____WB$wombat$assign$function_____("frames");
-  let opener = _____WB$wombat$assign$function_____("opener");
 
 var sHP = 'Hockey Play', sF = 'Paltry Fine', sS = 'Season', sL = 'Lifetime';
 var s1 = '1 Game', s2 = '2 Games', s3 = '3 Games', s4 = '4 Games',
@@ -967,26 +956,3 @@ var sS_r = '!p1 has been suspended for the rest of the season.';
 var sL_r = '!p1 has been banned for life.';
 var sG_r = 'After careful consideration, !p1 has been suspended for !game for his actions on !p2.';
 var sP1_r = ' In reviewing this play, we also took into consideration that !p !type.';
-
-}
-/*
-     FILE ARCHIVED ON 09:57:42 Feb 03, 2019 AND RETRIEVED FROM THE
-     INTERNET ARCHIVE ON 01:11:45 May 06, 2021.
-     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
-
-     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
-     SECTION 108(a)(3)).
-*/
-/*
-playback timings (ms):
-  captures_list: 106.262
-  exclusion.robots: 0.222
-  exclusion.robots.policy: 0.216
-  RedisCDXSource: 1.929
-  esindex: 0.009
-  LoadShardBlock: 84.29 (3)
-  PetaboxLoader3.datanode: 179.776 (5)
-  CDXLines.iter: 17.2 (3)
-  load_resource: 318.193 (2)
-  PetaboxLoader3.resolve: 147.075 (2)
-*/
