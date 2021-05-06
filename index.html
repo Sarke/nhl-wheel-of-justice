@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+
+<html lang="en" class="no-js">
+<head>
+    <meta charset="utf-8" />
+    <title>NHL Wheel of Justice</title>
+    <meta name="description" content="Spin the NHL Wheel of Justice to find out how the NHL determines fines and suspensions." />
+    <meta name="author" content="Pinder Johal" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+    <script type="text/javascript">// <![CDATA[
+        //var mobile = (/iphone|ipad|ipod|android|blackberry|mini|windows\sce|palm/i.test(navigator.userAgent.toLowerCase()));
+        //if (mobile) {
+        //    document.location = "/mobile/";
+        //}
+    // ]]>
+    </script>
+
+    <link href="stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" />
+    <link href="js/iphone-style-checkboxes/style.css" media="screen, projection" rel="stylesheet" type="text/css" />
+
+    <!--[if IE]>
+    <link href="stylesheets/ie.css" media="screen, projection" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="js/excanvas.compiled.js"></script>
+    <script type="text/javascript" src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	<!--[if lte IE 8]>
+	<link href="stylesheets/ie7.css" media="screen, projection" rel="stylesheet" type="text/css" />
+	<![endif]-->
+<!--    <script type="text/javascript">
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-596785-3']);
+        _gaq.push(['_trackPageview']);
+
+        (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+
+    </script>-->
+</head>
+
+<body>
+
+<div id="wrapper">
+    <header>
+        <div class="rectangle clearfix">
+            <img src="imgs/nhl_big.png" class="biglogo" />
+            <h1>NHL Wheel of Justice</h1>
+        </div>
+        <div class="triangle-l"></div>
+        <div class="triangle-r"></div>
+    </header>
+
+    <section class="info">
+        <p>NHL Wheel of Justice was created to determine how Colin Campbell determined fines and suspensions.
+            Brendan Shanahan is now the NHL Senior Vice President of Player Safety and Hockey Operations and
+            completely changed how suspensions are determined...or has he?</p>
+
+            <p>Type in the players involved,
+            what happened, and the result to compare!</p>
+    </section>
+
+    <!--[if lte IE 8]>
+    <div class="upgrade">
+        <h2>Hello, Internet Explorer user.</h2>
+        <p>Unfortunately the NHL Wheel of Justice does not completely work on IE. This site uses HTML5 technology for animations
+            which unfortunately is not supported on your version of IE.</p>
+        <p>However, you can still enter player info and see the results, you just won't see the animated wheel.</p>
+
+        <p>To see the full NHL Wheel of Justice, please use one of the following supported browsers:</p>
+        <div class="clearfix">
+            <a href="http://www.google.com/chrome" class="b-sprite chrome">Chrome</a>
+            <a href="http://www.getfirefox.com/" class="b-sprite firefox">Firefox</a>
+            <a href="http://www.opera.com/" class="b-sprite opera">Opera</a>
+            <a href="http://www.apple.com/safari/" class="b-sprite safari">Safari</a>
+        </div>
+    </div>
+    <![endif]-->
+
+    <div id="content">
+        <div class="left">
+            <section class="wheel">
+                <canvas id="wheelcanvas" width="500" height="500"></canvas>
+                <img id="imgCenter" src="imgs/shanahan.jpg" alt="Brendan Shanahan" width="75" height="98" class="hidden" />
+            </section>
+            <section class="results">
+                <h2 id="resultTitle"></h2>
+                <p id="resultText"></p>
+                <img src="imgs/spinner.gif" width="66" height="66" alt="Spinner" id="spinner" class="hidden" />
+            </section>
+        </div>
+        <aside>
+<!--            <section class="socialmedia clearfix">
+                <div class="share twitter">
+                    <a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="pinder">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+                </div>
+                <div class="share facebook"><iframe src="http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fwww.nhlwheelofjustice.com%2F&amp;layout=standard&amp;show_faces=true&amp;width=400&amp;action=like&amp;font&amp;colorscheme=light&amp;height=25" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:400px; height:25px;" allowTransparency="true"></iframe></div>
+				<div class="share gplus"><g:plusone size="small" annotation="inline"></g:plusone></div>
+            </section>-->
+            <section class="controls" style="padding-top: 50px;">
+
+
+                <div class="playoffs clearfix">
+                    <div class="clearfix">
+                        <label for="playoff_mode" class="lbl_playoff_mode">Playoff Mode:</label>
+                        <input type="checkbox" id="playoff_mode" />
+                    </div>
+
+                    <div class="weber_mode">
+                        <img id="imgWeber" src="imgs/weber.png" alt="Shea Weber" width="116" height="159" class="hiddexn" />
+                        <h3>Shea Weber Mode Activated!</h3>
+                    </div>
+
+                </div>
+
+
+                <div class="form-field first">
+                    <label for="player1">Player:</label>
+                    <input type="text" name="player1" id="player1" data-val="3" value="Raffi Torres" class="form-input"/><span id="req1" class="required hidden">required</span>
+                </div>
+                <div class="form-field">
+                    <select id="action" class="form-select">
+                        <option value="headhit" selected="selected">head hit on</option>
+                        <option value="blindsideheadhit">blind side head hit on</option>
+                        <option value="boarded">boarded</option>
+                        <option value="elbow">elbow to the head of</option>
+                        <option value="crosscheck">cross-checked</option>
+                        <option value="suckerpunch">suckerpunched</option>
+                        <option value="slewfoot">slew-foot on</option>
+                        <option value="kneeonknee">knee-on-knee hit on</option>
+                        <option value="gesture">obscene gesture towards</option>
+                        <option value="slashed">slashed</option>
+                        <option value="stomped">stomped</option>
+                        <option value="bit">bit</option>
+						<option value="charged">charged</option>
+                        <option value="clipped">clipped</option>
+                        <option value="chokeslammed">chokeslammed</option>
+                        <option value="verballyabused">verbally abused</option>
+                        <option value="linebrawled">line brawled</option>
+                    </select>
+                </div>
+                <div class="form-field">
+                    <label for="player2">Player:</label>
+                    <input type="text" name="player2" id="player2" data-val="2" value="Jarret Stoll" class="form-input"/><span id="req2" class="required hidden">required</span>
+                </div>
+                <div class="form-field">
+                    <label for="result">Result:</label>
+                    <select id="result" class="form-select">
+                        <option value="1" selected="selected">Concussion</option>
+                        <option value="2">Out a couple weeks</option>
+                        <option value="4">Out for season</option>
+                        <option value="3">Not injured</option>
+                    </select>
+                </div>
+                <div class="form-field last">
+                    <input type="button" value="Spin the Wheel" class="btnSpin btn" />
+                    <input type="button" value="Reset" id="btnReset" class="btn" />
+                </div>
+            </section>
+        </aside>
+    </div>
+
+    <footer class="clearfix">
+		<div><p>Resurrected using <a href="http://web.archive.org/">Internet Archive Wayback Machine</a>.  Original author below.</p></div>
+        <div class="footer-left">
+            <p>HTML5 site by <a href="http://www.deftone.com/">Pinder Johal</a>. Follow me on Twitter: <a href="http://twitter.com/pinder">@pinder</a></p>
+            <p class="disclaimer">Disclaimer: NHL Wheel of Justice is a parody. This site is in no way affiliated or associated with the NHL. This site uses the names and images of NHL and NHLPA for the purposes of satire.</p>
+        </div>
+        <div class="html5">
+            <a href="http://www.w3.org/html/logo/"><img src="imgs/html5.png" width="32" height="32" alt="HTML5"/></a>
+        </div>
+    </footer>
+</div>
+
+<script src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
+<script type="text/javascript" src="js/jqueryui/ui/minified/jquery-ui-1.8.10.custom.js"></script>
+<script type="text/javascript" src="js/iphone-style-checkboxes/jquery/iphone-style-checkboxes.js"></script>
+<script type="text/javascript" src="js/jrumble/jrumble.1.1.min.js"></script>
+<script type="text/javascript" src="js/data.js"></script>
+<script type="text/javascript" src="js/wheel.js"></script>
+<script>
+    $(document).ready(function(){
+        var wh = new wheel();
+        wh.init();
+    });
+</script>
+
+</body>
+</html>
